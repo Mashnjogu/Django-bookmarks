@@ -19,10 +19,10 @@ def image_create(request):
             new_image.save()
             messages.success(request, 'Image added successfully')
             return redirect(new_image.get_absolute_url())
-        else:
-            #build form with the data provided by the bookmarklet via GET
-            form = ImageCreateForm(data=request.GET)
-        return render(request,
-                      'images/image/create.html',
-                      {'section': 'images', 'form': form}
-                      )
+    else:
+        #build form with the data provided by the bookmarklet via GET
+        form = ImageCreateForm(data=request.GET)
+    return render(request,
+                  'images/image/create.html',
+                  {'section': 'images', 'form': form}
+                  )
