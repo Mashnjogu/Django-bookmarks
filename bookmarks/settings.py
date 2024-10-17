@@ -25,7 +25,13 @@ SECRET_KEY = "django-insecure-%m!tf3=xhmjdxouo#=g3iy#q7*as=ek&bx6-%)xvmarc(t@&!^
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+if DEBUG:
+    import mimetypes
+
+    mimetypes.add_type('application/javascript', '.js', True)
+    mimetypes.add_type('text/css', '.css', True)
+
+ALLOWED_HOSTS = ['mysite.com', 'localhost', '127.0.0.1']
 
 
 # Application definition
@@ -148,3 +154,6 @@ AUTHENTICATION_BACKENDS = [
 
 MEDIA_URL = 'media/'
 MEDIA_ROOT = BASE_DIR/'media'
+
+
+## page 290
